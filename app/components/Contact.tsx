@@ -22,13 +22,13 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-blue-400 font-semibold text-sm uppercase tracking-widest mb-3">
+            <p className="text-shadow text-blue-300 font-semibold text-sm uppercase tracking-widest mb-3">
               Get In Touch
             </p>
-            <h2 className="text-4xl font-black text-white mb-5">
+            <h2 className="text-shadow text-4xl font-black text-white mb-5">
               Ready to Grow Your Business?
             </h2>
-            <p className="text-slate-400 leading-relaxed mb-8">
+            <p className="text-shadow text-slate-200 leading-relaxed mb-8">
               Tell us about your project and we&apos;ll get back to you within 24 hours
               with a tailored plan and quote. No commitments required.
             </p>
@@ -54,7 +54,7 @@ export default function Contact() {
                 "Free initial consultation",
                 "No obligation quote",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-3 text-sm text-slate-300">
+                <div key={item} className="text-shadow flex items-center gap-3 text-sm text-slate-200">
                   <CheckCircle size={16} className="text-blue-400 shrink-0" />
                   {item}
                 </div>

@@ -79,8 +79,14 @@ export default function VideoBackground() {
         <div id="yt-bg-player" className="w-full h-full" />
       </div>
 
-      {/* ── Koyu overlay — metin okunabilirliği ── */}
-      <div className="absolute inset-0 bg-black/55" />
+      {/* ── Hafif tonal overlay — videoyu açık tutar, metin okunur ── */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(10,20,60,0.38) 0%, rgba(5,10,30,0.22) 50%, rgba(20,10,50,0.30) 100%)",
+        }}
+      />
 
       {/* ── CSS animasyon fallback — YouTube yüklenene kadar görünür ── */}
       <div

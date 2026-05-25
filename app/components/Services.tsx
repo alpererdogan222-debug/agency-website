@@ -56,13 +56,13 @@ export default function Services() {
     <section id="services" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
-          <p className="text-blue-400 font-semibold text-sm uppercase tracking-widest mb-3">
+          <p className="text-shadow text-blue-300 font-semibold text-sm uppercase tracking-widest mb-3">
             What We Do
           </p>
-          <h2 className="text-4xl font-black text-white mb-4">
+          <h2 className="text-shadow text-4xl font-black text-white mb-4">
             Services Built for Business Growth
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
+          <p className="text-shadow text-slate-200 max-w-xl mx-auto">
             Every service we offer is designed with one goal: getting you more
             visibility, more leads, and more revenue.
           </p>
@@ -91,13 +91,13 @@ export default function Services() {
                 <h3 className="text-xl font-bold text-white mb-3">
                   {service.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-5">
+                <p className="text-slate-200 text-sm leading-relaxed mb-5">
                   {service.description}
                 </p>
 
                 <ul className="space-y-2.5">
                   {service.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2.5 text-sm text-slate-300">
+                    <li key={feature} className="flex items-start gap-2.5 text-sm text-slate-100">
                       <CheckCircle2 size={15} className="text-blue-400 mt-0.5 shrink-0" />
                       {feature}
                     </li>

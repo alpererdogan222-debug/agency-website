@@ -57,13 +57,13 @@ const socialPlans = [
 const websitePlans = [
   {
     name: "Landing Page",
-    price: "$799",
+    price: "$299",
     period: "one-time",
     description: "A clean, high-converting landing page to showcase your business.",
     features: [
-      "1–3 page custom website",
+      "1 page custom website",
       "Mobile-first responsive design",
-      "Basic SEO setup",
+      "SEO optimization",
       "Contact form integration",
       "Fast loading & optimized",
       "2 rounds of revisions",
@@ -73,15 +73,14 @@ const websitePlans = [
   },
   {
     name: "Business Website",
-    price: "$1,499",
+    price: "$599",
     period: "one-time",
     description: "A full professional website that builds trust and drives conversions.",
     features: [
-      "Up to 8 custom pages",
+      "Up to 3 custom pages",
       "Unique brand-aligned design",
-      "Advanced SEO optimization",
+      "SEO optimization",
       "Contact form + integrations",
-      "Google Analytics setup",
       "Speed & performance tuning",
       "3 rounds of revisions",
     ],
@@ -178,13 +177,13 @@ export default function Pricing() {
     <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
-          <p className="text-blue-400 font-semibold text-sm uppercase tracking-widest mb-3">
+          <p className="text-shadow text-blue-300 font-semibold text-sm uppercase tracking-widest mb-3">
             Pricing
           </p>
-          <h2 className="text-4xl font-black text-white mb-4">
+          <h2 className="text-shadow text-4xl font-black text-white mb-4">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
+          <p className="text-shadow text-slate-200 max-w-xl mx-auto">
             No hidden fees. No long-term contracts. Choose the service you need
             — or reach out for a bundled custom quote.
           </p>
@@ -222,9 +221,9 @@ export default function Pricing() {
           ))}
         </div>
 
-        <p className="text-center text-slate-500 text-sm mt-8">
+        <p className="text-shadow text-center text-slate-300 text-sm mt-8">
           Not sure which plan is right for you?{" "}
-          <a href="#contact" className="text-blue-400 hover:underline font-medium">
+          <a href="#contact" className="text-blue-300 hover:underline font-medium">
             Contact us for a free consultation.
           </a>
         </p>

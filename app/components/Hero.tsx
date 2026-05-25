@@ -19,12 +19,12 @@ export default function Hero() {
             Digital Agency — US Market
           </div>
 
-          <h1 className="text-5xl sm:text-6xl font-black text-white leading-tight tracking-tight mb-6">
+          <h1 className="text-shadow text-5xl sm:text-6xl font-black text-white leading-tight tracking-tight mb-6">
             We Help Businesses
             <span className="block text-blue-400">Grow Online.</span>
           </h1>
 
-          <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-xl">
+          <p className="text-shadow text-lg text-slate-200 leading-relaxed mb-8 max-w-xl">
             From social media management to full website development — we craft
             digital strategies that turn visitors into loyal customers.
           </p>
