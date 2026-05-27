@@ -73,7 +73,7 @@ export default function Contact() {
                   Please send the email from your client. We&apos;ll get back to you within 24 hours.
                 </p>
                 <button
-                  onClick={() => setSent(false)}
+                  onClick={() => { setSent(false); setForm({ name: "", email: "", service: "", message: "" }); }}
                   className="mt-6 text-blue-400 text-sm font-medium hover:underline"
                 >
                   Send another message
