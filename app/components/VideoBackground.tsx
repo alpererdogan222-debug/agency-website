@@ -56,21 +56,19 @@ export default function VideoBackground() {
           },
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           onStateChange: (e: any) => {
-            const wrapper = document.getElementById("yt-bg-wrapper");
+            const cover = document.getElementById("yt-cover");
             if (e.data === 1) {
-              // Oynatılıyor → YouTube'un kısa "başlatılıyor" animasyonu bitsin, sonra göster
+              // Oynatılıyor → YouTube animasyonu tamamen bitsin (1500ms), sonra örtüyü kaldır
               setTimeout(() => {
-                if (wrapper) wrapper.style.opacity = "1";
-              }, 600);
+                if (cover) cover.style.opacity = "0";
+              }, 1500);
             } else {
-              // Oynatılmıyor → gizle
-              if (wrapper) wrapper.style.opacity = "0";
+              // Oynatılmıyor → örtüyü hemen geri getir
+              if (cover) cover.style.opacity = "1";
               if (e.data === 0) {
-                // Video bitti → başa sar ve yeniden oynat (playlist yok, döngü elle)
                 e.target.seekTo(0);
                 e.target.playVideo();
               } else if (e.data === 2) {
-                // Duraklatıldı → yeniden oynat
                 e.target.playVideo();
               }
             }
@@ -108,8 +106,6 @@ export default function VideoBackground() {
             transform: "translate(-50%, -50%)",
             pointerEvents: "none",
             zIndex: 0,
-            opacity: 0,
-            transition: "opacity 0.8s ease",
           }}
         >
           <div id="yt-bg-player" className="w-full h-full" />
@@ -122,6 +118,19 @@ export default function VideoBackground() {
             zIndex: 2,
             background:
               "linear-gradient(135deg, rgba(10,20,60,0.38) 0%, rgba(5,10,30,0.22) 50%, rgba(20,10,50,0.30) 100%)",
+          }}
+        />
+
+        {/* Opak örtü — YouTube buton animasyonlarını tamamen gizler, sadece temiz oynatma anında şeffaflaşır */}
+        <div
+          id="yt-cover"
+          className="absolute inset-0"
+          style={{
+            zIndex: 3,
+            background: "#030810",
+            opacity: 1,
+            transition: "opacity 1.2s ease",
+            pointerEvents: "none",
           }}
         />
 
