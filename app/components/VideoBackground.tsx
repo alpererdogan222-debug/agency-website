@@ -58,8 +58,10 @@ export default function VideoBackground() {
           onStateChange: (e: any) => {
             const wrapper = document.getElementById("yt-bg-wrapper");
             if (e.data === 1) {
-              // Oynatılıyor → göster
-              if (wrapper) wrapper.style.opacity = "1";
+              // Oynatılıyor → YouTube'un kısa "başlatılıyor" animasyonu bitsin, sonra göster
+              setTimeout(() => {
+                if (wrapper) wrapper.style.opacity = "1";
+              }, 600);
             } else {
               // Oynatılmıyor → gizle
               if (wrapper) wrapper.style.opacity = "0";
