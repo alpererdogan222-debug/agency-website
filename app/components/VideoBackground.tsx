@@ -121,7 +121,7 @@ export default function VideoBackground() {
           }}
         />
 
-        {/* Opak örtü — YouTube buton animasyonlarını tamamen gizler, sadece temiz oynatma anında şeffaflaşır */}
+        {/* Opak örtü — YouTube buton animasyonlarını tamamen gizler */}
         <div
           id="yt-cover"
           className="absolute inset-0"
@@ -133,6 +133,55 @@ export default function VideoBackground() {
             pointerEvents: "none",
           }}
         />
+
+        {/* Marka damgası — videonun tam ortasında sabit logo */}
+        <div
+          className="absolute"
+          style={{
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 5,
+            pointerEvents: "none",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+              background: "rgba(8, 16, 40, 0.82)",
+              borderRadius: "20px",
+              padding: "18px 36px",
+              border: "1px solid rgba(96, 165, 250, 0.25)",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            <span style={{ fontWeight: 900, color: "#ffffff", fontSize: "36px", letterSpacing: "-0.5px", lineHeight: 1 }}>
+              Sagework
+            </span>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "44px",
+                height: "44px",
+                borderRadius: "50%",
+                border: "2px solid #60a5fa",
+                color: "#60a5fa",
+                fontWeight: 900,
+                fontSize: "13px",
+                lineHeight: 1,
+              }}
+            >
+              &lt;/&gt;
+            </div>
+            <span style={{ fontWeight: 900, color: "#94a3b8", fontSize: "36px", letterSpacing: "-0.5px", lineHeight: 1 }}>
+              Digital
+            </span>
+          </div>
+        </div>
 
         {/* CSS fallback gradient */}
         <div
