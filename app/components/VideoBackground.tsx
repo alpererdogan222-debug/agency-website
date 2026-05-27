@@ -35,12 +35,20 @@ export default function VideoBackground() {
           fs: 0,
           cc_load_policy: 0,
           playsinline: 1,
+          enablejsapi: 1,
         },
         events: {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           onReady: (e: any) => {
             e.target.mute();
             e.target.playVideo();
+          },
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          onStateChange: (e: any) => {
+            // Video durdu veya bitti → hemen yeniden başlat, kontrol butonları görünmesin
+            if (e.data === 0 || e.data === 2) {
+              e.target.playVideo();
+            }
           },
         },
       });
@@ -74,15 +82,20 @@ export default function VideoBackground() {
           height: "max(100vh, 56.25vw)",
           transform: "translate(-50%, -50%)",
           pointerEvents: "none",
+          zIndex: 0,
         }}
       >
         <div id="yt-bg-player" className="w-full h-full" />
       </div>
 
+      {/* ── Şeffaf engelleme katmanı — iframe hover olaylarını tamamen keser ── */}
+      <div className="absolute inset-0" style={{ zIndex: 1 }} />
+
       {/* ── Hafif tonal overlay — videoyu açık tutar, metin okunur ── */}
       <div
         className="absolute inset-0"
         style={{
+          zIndex: 2,
           background:
             "linear-gradient(135deg, rgba(10,20,60,0.38) 0%, rgba(5,10,30,0.22) 50%, rgba(20,10,50,0.30) 100%)",
         }}
