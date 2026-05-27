@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import Image from "next/image";
 
 const links = [
   { href: "#services", label: "Services" },
@@ -30,14 +29,13 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <a href="#" className="flex items-center">
-            <Image
-              src="/logo.jpg"
-              alt="SageworkDigital"
-              width={180}
-              height={80}
-              className="h-10 w-auto rounded-md"
-              priority
-            />
+            <div className="flex items-center bg-[#0a1628] rounded-xl px-4 py-2 gap-2">
+              <span className="font-black text-white text-xl tracking-tight">Sagework</span>
+              <div className="flex items-center justify-center w-7 h-7 rounded-full border-2 border-blue-400 text-blue-400 font-black text-[11px] leading-none">
+                &lt;/&gt;
+              </div>
+              <span className="font-black text-slate-400 text-xl tracking-tight">Digital</span>
+            </div>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">

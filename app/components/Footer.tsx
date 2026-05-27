@@ -6,7 +6,13 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <p className="text-white font-black text-xl tracking-tight mb-1">SageworkDigital</p>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="font-black text-white text-xl tracking-tight">Sagework</span>
+              <div className="flex items-center justify-center w-6 h-6 rounded-full border-2 border-blue-400 text-blue-400 font-black text-[10px] leading-none">
+                &lt;/&gt;
+              </div>
+              <span className="font-black text-slate-400 text-xl tracking-tight">Digital</span>
+            </div>
             <p className="text-sm">Digital Growth Agency</p>
           </div>
 
