@@ -30,7 +30,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <a href="#" className="flex items-center gap-2">
             <span className="text-2xl font-black text-blue-700 tracking-tight">
-              [Agency Name]
+              SageworkDigital
             </span>
           </a>
 

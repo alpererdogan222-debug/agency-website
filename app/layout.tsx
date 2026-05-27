@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "[Agency Name] — Digital Agency",
+  title: "SageworkDigital — Digital Agency",
   description:
     "We help businesses grow online through social media management, website development, and website optimization.",
   keywords: ["digital agency", "social media management", "web development", "website optimization"],

@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <p className="text-white font-black text-xl tracking-tight mb-1">[Agency Name]</p>
+            <p className="text-white font-black text-xl tracking-tight mb-1">SageworkDigital</p>
             <p className="text-sm">Digital Growth Agency</p>
           </div>
 
@@ -26,7 +26,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/8 mt-8 pt-8 text-center text-xs text-slate-600">
-          © {year} [Agency Name]. All rights reserved.
+          © {year} SageworkDigital. All rights reserved.
         </div>
       </div>
     </footer>
