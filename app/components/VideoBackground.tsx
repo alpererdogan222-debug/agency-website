@@ -45,9 +45,14 @@ export default function VideoBackground() {
           },
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           onStateChange: (e: any) => {
-            // Video durdu veya bitti → hemen yeniden başlat, kontrol butonları görünmesin
-            if (e.data === 0 || e.data === 2) {
-              e.target.playVideo();
+            const wrapper = document.getElementById("yt-bg-wrapper");
+            if (e.data === 1) {
+              // Oynatılıyor → iframe'i göster
+              if (wrapper) wrapper.style.opacity = "1";
+            } else {
+              // Duraklatıldı, bitti veya tampon doluyor → gizle ve yeniden başlat
+              if (wrapper) wrapper.style.opacity = "0";
+              if (e.data === 0 || e.data === 2) e.target.playVideo();
             }
           },
         },
@@ -73,7 +78,9 @@ export default function VideoBackground() {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden bg-[#030810]">
       {/* ── YouTube video — 16:9 aspect ratio, tam ekranı kaplar ── */}
+      {/* opacity:0 başlangıçta — sadece state=PLAYING olduğunda 1'e çıkar */}
       <div
+        id="yt-bg-wrapper"
         className="absolute"
         style={{
           top: "50%",
@@ -83,6 +90,8 @@ export default function VideoBackground() {
           transform: "translate(-50%, -50%)",
           pointerEvents: "none",
           zIndex: 0,
+          opacity: 0,
+          transition: "opacity 0.8s ease",
         }}
       >
         <div id="yt-bg-player" className="w-full h-full" />
