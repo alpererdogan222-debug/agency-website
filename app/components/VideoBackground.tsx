@@ -2,8 +2,7 @@
 
 import { useEffect } from "react";
 
-const PLAYLIST = "Hgg7M3kSqyE,84G5TygFVeY";
-const FIRST_VIDEO = "Hgg7M3kSqyE";
+const VIDEO_ID = "Hgg7M3kSqyE";
 
 declare global {
   interface Window {
@@ -33,14 +32,13 @@ export default function VideoBackground() {
 
     function initPlayer() {
       new window.YT.Player("yt-bg-player", {
-        videoId: FIRST_VIDEO,
+        videoId: VIDEO_ID,
         playerVars: {
           autoplay: 1,
           controls: 0,
           showinfo: 0,
           modestbranding: 1,
-          loop: 1,
-          playlist: PLAYLIST,
+          // loop ve playlist KALDIRILDI — playlist navigasyon butonlarının kaynağıydı
           mute: 1,
           rel: 0,
           iv_load_policy: 3,
@@ -60,10 +58,19 @@ export default function VideoBackground() {
           onStateChange: (e: any) => {
             const wrapper = document.getElementById("yt-bg-wrapper");
             if (e.data === 1) {
+              // Oynatılıyor → göster
               if (wrapper) wrapper.style.opacity = "1";
             } else {
+              // Oynatılmıyor → gizle
               if (wrapper) wrapper.style.opacity = "0";
-              if (e.data === 0 || e.data === 2) e.target.playVideo();
+              if (e.data === 0) {
+                // Video bitti → başa sar ve yeniden oynat (playlist yok, döngü elle)
+                e.target.seekTo(0);
+                e.target.playVideo();
+              } else if (e.data === 2) {
+                // Duraklatıldı → yeniden oynat
+                e.target.playVideo();
+              }
             }
           },
         },
