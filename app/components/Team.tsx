@@ -3,14 +3,14 @@ import Image from "next/image";
 const team = [
   {
     name: "Alper Erdoğan",
-    role: "Co-Founder & Lead Developer",
-    bio: "Passionate about building fast, beautiful websites that drive real business results. Specializes in modern web technologies and conversion-focused design.",
+    role: "Co-Founder & Social Media Strategist",
+    bio: "Expert in growing brands on social media with data-driven content strategies. Helps businesses build loyal audiences and turn followers into customers.",
     photo: "/founder-1.jpg",
   },
   {
     name: "Barış Kırlı",
-    role: "Co-Founder & Social Media Strategist",
-    bio: "Expert in growing brands on social media with data-driven content strategies. Helps businesses build loyal audiences and turn followers into customers.",
+    role: "Co-Founder & Lead Developer",
+    bio: "Passionate about building fast, beautiful websites that drive real business results. Specializes in modern web technologies and conversion-focused design.",
     photo: "/founder-2.jpg",
   },
 ];
