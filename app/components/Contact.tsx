@@ -13,7 +13,7 @@ export default function Contact() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nService: ${form.service}\n\nMessage:\n${form.message}`
     );
-    window.open(`mailto:alpererdogan222@gmail.com?subject=${subject}&body=${body}`, "_blank");
+    window.open(`mailto:alper@sageworkdigital.com?subject=${subject}&body=${body}`, "_blank");
     setSent(true);
   };
 
@@ -40,10 +40,10 @@ export default function Contact() {
               <div>
                 <p className="text-xs text-slate-500 font-medium mb-0.5">Email Us</p>
                 <a
-                  href="mailto:alpererdogan222@gmail.com"
+                  href="mailto:alper@sageworkdigital.com"
                   className="text-white font-semibold hover:text-blue-400 transition-colors text-sm"
                 >
-                  alpererdogan222@gmail.com
+                  alper@sageworkdigital.com
                 </a>
               </div>
             </div>

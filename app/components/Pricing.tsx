@@ -5,49 +5,32 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 
 const socialPlans = [
   {
-    name: "Starter",
-    price: "$299",
+    name: "Creator",
+    price: "$25",
     period: "/month",
-    description: "Perfect for small businesses getting started with social media.",
+    description: "Studio-quality social media management for one channel — everything you need to start posting.",
     features: [
-      "Social media management (1 platform)",
-      "12 posts per month",
-      "Basic content creation",
-      "Monthly performance report",
-      "Email support",
+      "Social media management (1 account)",
+      "Private workspace",
+      "No watermark",
+      "4K resolution videos",
+      "Permanent video storage",
     ],
     cta: "Get Started",
-    highlighted: false,
-  },
-  {
-    name: "Growth",
-    price: "$599",
-    period: "/month",
-    description: "For businesses ready to scale with a strong online presence.",
-    features: [
-      "Social media management (3 platforms)",
-      "24 posts per month",
-      "Custom content design",
-      "Audience growth strategy",
-      "Weekly performance reports",
-      "Priority email & chat support",
-    ],
-    cta: "Start Growing",
     highlighted: true,
     badge: "Best Value",
   },
   {
-    name: "Pro",
+    name: "Custom",
     price: "Custom",
     period: "",
-    description: "Full-service package for businesses that want to dominate their market.",
+    description: "Need something more? Tell us your requirements and we'll price the plan accordingly.",
     features: [
-      "Unlimited platforms",
-      "Daily posting & stories",
-      "Advanced content strategy",
-      "Paid ads management",
-      "Monthly strategy calls",
-      "Real-time analytics dashboard",
+      "Multiple social accounts",
+      "Tailored content & video strategy",
+      "Custom deliverables & volume",
+      "Pricing based on your needs",
+      "Dedicated account manager",
     ],
     cta: "Let's Talk",
     highlighted: false,
@@ -106,7 +89,33 @@ const websitePlans = [
   },
 ];
 
-type Tab = "social" | "website";
+const maintenancePlan = {
+  name: "Hosting & Maintenance",
+  price: "$99",
+  period: "/month",
+  description:
+    "Keep your site running, secure, and up to date — we handle all the technical details so you can focus on your business.",
+  technical: [
+    "Vercel hosting (site stays live)",
+    "SSL certificate (auto-renewed)",
+    "Uptime monitoring & instant alerts",
+    "Monthly content update (1 change)",
+    "Contact form health check",
+    "Speed & performance review",
+    "Backup via GitHub repository",
+  ],
+  seo: [
+    "Google Search Console monitoring",
+    "Monthly SEO performance report",
+    "Keyword & traffic insights",
+  ],
+  support: [
+    "Email support (48h response)",
+    "Emergency fix within 24h",
+  ],
+};
+
+type Tab = "social" | "website" | "maintenance";
 
 function PlanCard({ plan }: { plan: (typeof socialPlans)[number] }) {
   return (
@@ -170,7 +179,7 @@ function PlanCard({ plan }: { plan: (typeof socialPlans)[number] }) {
 }
 
 export default function Pricing() {
-  const [activeTab, setActiveTab] = useState<Tab>("social");
+  const [activeTab, setActiveTab] = useState<Tab>("website");
   const plans = activeTab === "social" ? socialPlans : websitePlans;
 
   return (
@@ -191,7 +200,17 @@ export default function Pricing() {
 
         {/* Tab switcher */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-white/8 backdrop-blur-sm rounded-xl p-1 gap-1 border border-white/10">
+          <div className="inline-flex bg-white/8 backdrop-blur-sm rounded-xl p-1 gap-1 border border-white/10 flex-wrap justify-center">
+            <button
+              onClick={() => setActiveTab("website")}
+              className={`px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-200 ${
+                activeTab === "website"
+                  ? "bg-blue-500 text-white shadow-sm"
+                  : "text-slate-400 hover:text-white"
+              }`}
+            >
+              Website Development
+            </button>
             <button
               onClick={() => setActiveTab("social")}
               className={`px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-200 ${
@@ -203,23 +222,97 @@ export default function Pricing() {
               Social Media
             </button>
             <button
-              onClick={() => setActiveTab("website")}
+              onClick={() => setActiveTab("maintenance")}
               className={`px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-200 ${
-                activeTab === "website"
+                activeTab === "maintenance"
                   ? "bg-blue-500 text-white shadow-sm"
                   : "text-slate-400 hover:text-white"
               }`}
             >
-              Website Development
+              Hosting & Maintenance
             </button>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 items-start">
-          {plans.map((plan) => (
-            <PlanCard key={plan.name} plan={plan} />
-          ))}
-        </div>
+        {activeTab === "maintenance" ? (
+          <div className="max-w-3xl mx-auto">
+            <div className="relative rounded-2xl border border-blue-400/60 bg-white/8 backdrop-blur-sm p-10 shadow-xl shadow-blue-900/30">
+              <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-400 text-amber-900 text-xs font-black px-4 py-1.5 rounded-full whitespace-nowrap">
+                Add-On Service
+              </span>
+
+              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-2">
+                    {maintenancePlan.name}
+                  </p>
+                  <div className="flex items-end gap-1.5">
+                    <span className="text-5xl font-black text-white">{maintenancePlan.price}</span>
+                    <span className="text-sm mb-2 text-slate-400">{maintenancePlan.period}</span>
+                  </div>
+                </div>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold px-8 py-3 rounded-xl transition-colors text-sm"
+                >
+                  Get Started <ArrowRight size={15} />
+                </a>
+              </div>
+
+              <p className="text-slate-300 text-sm mb-8">{maintenancePlan.description}</p>
+
+              <div className="grid sm:grid-cols-2 gap-8">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-widest text-blue-400 mb-4">Technical</p>
+                  <ul className="space-y-3">
+                    {maintenancePlan.technical.map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-sm">
+                        <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-blue-400" />
+                        <span className="text-slate-300">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="space-y-8">
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-widest text-blue-400 mb-4">SEO</p>
+                    <ul className="space-y-3">
+                      {maintenancePlan.seo.map((f) => (
+                        <li key={f} className="flex items-start gap-2.5 text-sm">
+                          <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-blue-400" />
+                          <span className="text-slate-300">{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-widest text-blue-400 mb-4">Support</p>
+                    <ul className="space-y-3">
+                      {maintenancePlan.support.map((f) => (
+                        <li key={f} className="flex items-start gap-2.5 text-sm">
+                          <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-blue-400" />
+                          <span className="text-slate-300">{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div
+            className={`grid gap-6 items-start ${
+              plans.length === 2
+                ? "md:grid-cols-2 max-w-3xl mx-auto"
+                : "md:grid-cols-3"
+            }`}
+          >
+            {plans.map((plan) => (
+              <PlanCard key={plan.name} plan={plan} />
+            ))}
+          </div>
+        )}
 
         <p className="text-shadow text-center text-slate-300 text-sm mt-8">
           Not sure which plan is right for you?{" "}

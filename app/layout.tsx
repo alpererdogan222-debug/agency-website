@@ -13,6 +13,18 @@ export const metadata: Metadata = {
   description:
     "We help businesses grow online through social media management, website development, and website optimization.",
   keywords: ["digital agency", "social media management", "web development", "website optimization"],
+  metadataBase: new URL("https://sageworkdigital.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "SageworkDigital — Digital Agency",
+    description:
+      "We help businesses grow online through social media management, website development, and website optimization.",
+    url: "https://sageworkdigital.com",
+    siteName: "SageworkDigital",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

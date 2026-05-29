@@ -23,12 +23,27 @@ export default function Footer() {
             <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </nav>
 
-          <a
-            href="mailto:alpererdogan222@gmail.com"
-            className="text-sm hover:text-white transition-colors"
-          >
-            alpererdogan222@gmail.com
-          </a>
+          <div className="flex flex-col items-center sm:items-end gap-2">
+            <a
+              href="mailto:alper@sageworkdigital.com"
+              className="text-sm hover:text-white transition-colors"
+            >
+              alper@sageworkdigital.com
+            </a>
+            <a
+              href="https://www.instagram.com/sageworkdigital/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm hover:text-pink-400 transition-colors"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+              </svg>
+              @sageworkdigital
+            </a>
+          </div>
         </div>
 
         <div className="border-t border-white/8 mt-8 pt-8 text-center text-xs text-slate-600">
